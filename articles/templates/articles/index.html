@@ -1,7 +1,12 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}
     Articles - Eijgenraam.net
+{% endblock %}
+
+{% block css_files %}
+    <link rel='stylesheet' href='{% static "articles/index.css" %}'>
 {% endblock %}
 
 {% block content %}
