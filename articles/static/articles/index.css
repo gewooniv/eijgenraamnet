@@ -10,8 +10,8 @@
   }
   
   #welcome img {
-    width: 10rem;
-    height: 10rem;
+    width: 12.5rem;
+    height: 17.5rem;
     object-fit: cover;
     object-position: top;
     border: 5px solid white;
@@ -22,7 +22,7 @@
   }
   
   #welcome h2 {
-    font-size: 3.5rem;
+    font-size: 3rem;
     margin: 0 0 0 2rem;
     color: #e4e4e4;
     width: 15rem;
@@ -61,15 +61,15 @@
   #about {
     text-align: center;
     padding: 3rem;
-    background-color: #005237;
+    background-color: #e0e0e0;
     margin-top: 5rem;
   }
   
   #about h2 {
-    font-size: 3rem;
+    font-size: 2rem;
   }
   
   #about p {
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: #353535;
   }
