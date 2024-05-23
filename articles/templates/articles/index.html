@@ -5,5 +5,41 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Lorem</h1>
+    <header id='main-navigation'>
+        <h1><a href=''>Eijgenraam.net</a></h1>
+        <nav>
+            <a href=''>Alle Artikelen</a>
+        </nav>
+    </header>
+
+    <section id='welcome'>
+        <header>
+            <img src='' alt='Wapen van de familie Eijgenraam' />
+            <h2>Artikelen van de familie Eijgenraam</h2>
+        </header>
+        <p>Hello hello</p>
+    </section>
+
+    <section id='latest-posts'>
+        <h2>De laatste artikelen</h2>
+        <ul>
+            <li>
+                <article class='post'>
+                    <a href=''>
+                        <img src='' alt='Geschiedenis van de familie Eijgenraam' />
+                        <div class='post__content'>
+                            <h3>Geschiedenis</h2>
+                                <p>Clickbait previewtext</p>
+                        </div>
+                    </a>
+                </article>
+            </li>
+        </ul>
+    </section>
+
+    <section id='about'>
+        <h2>Over de familie</h2>
+        <p>Wat tekst met wellicht wat links naar andere pagina's</p>
+        <p>Meer tekst</p>
+    </section>
 {% endblock %}
