@@ -2,43 +2,27 @@
 {% load static %}
 
 {% block title %}
-    Articles - Eijgenraam.net
+    Artikelen - Eijgenraam.net
 {% endblock %}
 
 {% block css_files %}
-    <link rel='stylesheet' href='{% static "articles/index.css" %}'>
+    <link rel='stylesheet' href="{% static 'articles/post.css' %}">
+    <link rel='stylesheet' href="{% static 'articles/index.css' %}">
 {% endblock %}
 
 {% block content %}
-    <header id='main-navigation'>
-        <h1><a href=''>Eijgenraam.net</a></h1>
-        <nav>
-            <a href=''>Alle Artikelen</a>
-        </nav>
-    </header>
-
     <section id='welcome'>
         <header>
-            <img src='{% static "articles/images/wapen_eijgenraam_pentekening.jpg" %}' alt='Wapen van de familie Eijgenraam' />
+            <img src="{% static 'articles/images/wapen_eijgenraam_pentekening.jpg' %}" alt='Wapen van de familie Eijgenraam' />
             <h2>Genealogie van het geslacht Eijgenraam</h2>
         </header>
-        <p>Hello hello</p>
+        <p>{% lorem 1 b random %}</p>
     </section>
 
     <section id='latest-posts'>
         <h2>De laatste artikelen</h2>
         <ul>
-            <li>
-                <article class='post'>
-                    <a href=''>
-                        <img src='{% static "articles/images/de_mallemolen.jpg" %}' alt='Geschiedenis van de familie Eijgenraam' />
-                        <div class='post__content'>
-                            <h3>Geschiedenis</h2>
-                                <p>Clickbait previewtext</p>
-                        </div>
-                    </a>
-                </article>
-            </li>
+            {% include 'articles/includes/post.html' %}
         </ul>
     </section>
 

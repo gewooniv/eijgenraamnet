@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Alle artikelen - Eijgenraam.net
+{% endblock %}
+
+{% block css_files %}
+    <link rel='stylesheet' href="{% static 'articles/posts.css' %}">    
+    <link rel='stylesheet' href="{% static 'articles/post.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section id='all-posts'>
+        <h2>Alle artikelen</h2>
+
+        <ul>
+            {% include 'articles/includes/post.html' %}
+            {% include 'articles/includes/post.html' %}
+            {% include 'articles/includes/post.html' %}
+            {% include 'articles/includes/post.html' %}
+            {% include 'articles/includes/post.html' %}
+            {% include 'articles/includes/post.html' %}
+        </ul>
+    </section>
+{% endblock %}

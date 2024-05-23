@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Artikel - Eijgenraam.net
+{% endblock %}
+
+{% block css_files %}
+    <link rel='stylesheet' href="{% static 'articles/post-page.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section id='summary'>
+        <h2>Post naam</h2>
+        <article>
+            <img src="{% static 'articles/images/de_mallemolen.jpg' %}" alt="Post title" />
+            <address>Auteur</address>
+            <div>Last updated on <time></time></div>
+        </article>
+    <main>
+        <p>{% lorem 3 b random %}</p>
+    </main>  
+        
+    </section>
+{% endblock %}

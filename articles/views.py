@@ -6,7 +6,7 @@ def main_page(request):
     return render(request, 'articles/index.html')
 
 def posts(request):
-    pass
+    return render(request, 'articles/posts.html')
 
-def post_page(request):
-    pass
+def post_page(request, slug):
+    return render(request, 'articles/post_page.html')

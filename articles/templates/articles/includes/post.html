@@ -1,0 +1,13 @@
+{% load static %}
+
+<li>
+    <article class='post'>
+        <a href="{% url 'post_page' slug='de-mallemolen' %}">
+            <img src="{% static 'articles/images/de_mallemolen.jpg' %}" alt='Geschiedenis van de familie Eijgenraam' />
+            <div class='post__content'>
+                <h3>Geschiedenis</h2>
+                    <p>{% lorem 1 b random %}</p>
+            </div>
+        </a>
+    </article>
+</li>
