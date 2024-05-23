@@ -2,11 +2,11 @@
 
 <li>
     <article class='post'>
-        <a href="{% url 'post_page' slug='de-mallemolen' %}">
-            <img src="{% static 'articles/images/de_mallemolen.jpg' %}" alt='Geschiedenis van de familie Eijgenraam' />
+        <a href="{% url 'post_page' slug=post.slug %}">
+            <img src="{% static 'articles/images/'|add:post.img %}" alt='{{ post.title }}' />
             <div class='post__content'>
-                <h3>Geschiedenis</h2>
-                    <p>{% lorem 1 b random %}</p>
+                <h3>{{ post.title }}</h2>
+                    <p>{{ post.excerpt }}</p>
             </div>
         </a>
     </article>
