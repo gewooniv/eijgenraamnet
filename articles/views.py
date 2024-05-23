@@ -93,4 +93,7 @@ def posts(request):
     })
 
 def post_page(request, slug):
-    return render(request, 'articles/post_page.html')
+    single_post = next(post for post in posts_data if post['slug'] == slug)
+    return render(request, 'articles/post_page.html', {
+        'post': single_post,
+    })

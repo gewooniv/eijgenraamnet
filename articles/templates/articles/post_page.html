@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-     post.title  - Eijgenraam.net
+    {{ post.title }} - Eijgenraam.net
 {% endblock %}
 
 {% block css_files %}
@@ -11,14 +11,14 @@
 
 {% block content %}
     <section id='summary'>
-        <h2>post.title</h2>
+        <h2>{{ post.title }}</h2>
         <article>
-            <img src="{% static 'articles/images/de_mallemolen.jpg' %}" alt="Post title" />
-            <address>Auteur</address>
-            <div>Last updated on <time></time></div>
+            <img src="{% static 'articles/images/'|add:post.img %}" alt="{{ post.title }}" />
+            <address>{{ post.author }}</address>
+            <div>Last updated on <time>{{ post.date|date:'d M Y' }}</time></div>
         </article>
     <main>
-        <p>{% lorem 3 b random %}</p>
+        <p>{{ post.content|linebreaks }}</p>
     </main>  
         
     </section>
