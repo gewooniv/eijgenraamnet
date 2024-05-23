@@ -22,7 +22,7 @@
     <section id='latest-posts'>
         <h2>De laatste artikelen</h2>
         <ul>
-            {% for post in posts %}
+            {% for post in latest_posts %}
                 {% include 'articles/includes/post.html' %}
             {% endfor %}
         </ul>

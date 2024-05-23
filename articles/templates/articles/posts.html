@@ -15,12 +15,9 @@
         <h2>Alle artikelen</h2>
 
         <ul>
-            {% include 'articles/includes/post.html' %}
-            {% include 'articles/includes/post.html' %}
-            {% include 'articles/includes/post.html' %}
-            {% include 'articles/includes/post.html' %}
-            {% include 'articles/includes/post.html' %}
-            {% include 'articles/includes/post.html' %}
+            {% for post in posts %}
+                {% include 'articles/includes/post.html' %}
+            {% endfor %}
         </ul>
     </section>
 {% endblock %}

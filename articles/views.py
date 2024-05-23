@@ -83,11 +83,14 @@ def main_page(request):
     sorted_posts = sorted(posts_data, key=get_date)
     latest_posts = sorted_posts[-3:]
     return render(request, 'articles/index.html', {
-        'posts': latest_posts,
+        'latest_posts': latest_posts,
     })
 
 def posts(request):
-    return render(request, 'articles/posts.html')
+    sorted_posts = sorted(posts_data, key=get_date)
+    return render(request, 'articles/posts.html', {
+        'posts': sorted_posts,
+    })
 
 def post_page(request, slug):
     return render(request, 'articles/post_page.html')
