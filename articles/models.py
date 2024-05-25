@@ -1,10 +1,11 @@
 from django.db import models
 from django.urls import reverse
+from django.utils.text import slugify
 
 # Create your models here.
 
 class Post(models.Model):
-    slug = models.CharField(max_length=64)
+    slug = models.SlugField(default='', null=False)
     title = models.CharField(max_length=64)
     author = models.CharField(max_length=64)
     date = models.DateField()
@@ -16,4 +17,9 @@ class Post(models.Model):
     
     def get_absolute_url(self):
         return reverse("post_page", args=[self.slug])
+    
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super.save(*args, **kwargs)
+        
     
