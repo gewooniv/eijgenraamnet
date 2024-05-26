@@ -5,8 +5,8 @@ from django.utils.text import slugify
 # Create your models here.
 
 class Post(models.Model):
-    slug = models.SlugField(default='', editable=False, blank=True, null=False, db_index=True)
     title = models.CharField(max_length=64)
+    slug = models.SlugField(default='', blank=True, null=False, db_index=True)
     author = models.CharField(max_length=64)
     date = models.DateField()
     excerpt = models.TextField(max_length=200)
@@ -18,8 +18,10 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse("post_page", args=[self.slug])
     
+    '''
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
         super().save(*args, **kwargs)
+    '''
         
     
