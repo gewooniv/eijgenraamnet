@@ -5,12 +5,12 @@ from django.utils.text import slugify
 # Create your models here.
 
 class Post(models.Model):
-    slug = models.SlugField(default='', null=False, db_index=True)
+    slug = models.SlugField(default='', editable=False, blank=True, null=False, db_index=True)
     title = models.CharField(max_length=64)
     author = models.CharField(max_length=64)
     date = models.DateField()
-    excerpt = models.CharField(max_length=200)
-    content = models.CharField(max_length=2000)
+    excerpt = models.TextField(max_length=200)
+    content = models.TextField(max_length=20000)
     
     def __str__(self):
         return f'{self.title}, van {self.author} ({self.date})'
@@ -20,6 +20,6 @@ class Post(models.Model):
     
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
-        super.save(*args, **kwargs)
+        super().save(*args, **kwargs)
         
     
