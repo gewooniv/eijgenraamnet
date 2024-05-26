@@ -1,5 +1,5 @@
 from datetime import date
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 
 from .models import Post
 
@@ -94,14 +94,14 @@ def main_page(request):
     })
 
 def posts(request):
+    posts = get_posts()
     sorted_posts = posts #sorted(get_posts, key=get_date)
     return render(request, 'articles/posts.html', {
         'posts': sorted_posts,
     })
 
 def post_page(request, slug):
-    posts = get_posts()
-    single_post = next(post for post in posts if post['slug'] == slug)
+    single_post = get_object_or_404(Post, slug=slug)
     return render(request, 'articles/post_page.html', {
         'post': single_post,
     })

@@ -5,7 +5,7 @@ from django.utils.text import slugify
 # Create your models here.
 
 class Post(models.Model):
-    slug = models.SlugField(default='', null=False)
+    slug = models.SlugField(default='', null=False, db_index=True)
     title = models.CharField(max_length=64)
     author = models.CharField(max_length=64)
     date = models.DateField()
