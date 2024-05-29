@@ -7,7 +7,7 @@ class PostAdmin(admin.ModelAdmin):
     # readonly_fields = ()
     prepopulated_fields = {'slug': ('title',)}
     # list_display
-    # list_filter = ('author', )
+    list_filter = ('author', )
 
 admin.site.register(Post, PostAdmin)
 admin.site.register(Author)
