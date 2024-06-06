@@ -1,4 +1,5 @@
 from datetime import date
+from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 
 from .models import Post
@@ -25,6 +26,12 @@ def posts(request):
 
 def post_page(request, slug):
     single_post = get_object_or_404(Post, slug=slug)
+    
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            print(form.cleaned_data)
+            return HttpResponseRedirect('/thank-you')
     
     
     form = CommentForm()
