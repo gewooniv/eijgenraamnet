@@ -2,6 +2,7 @@ from datetime import date
 from django.shortcuts import get_object_or_404, render
 
 from .models import Post
+from .forms import CommentForm
 
 def get_posts():
     all_posts = Post.objects.all().order_by('date')
@@ -24,6 +25,11 @@ def posts(request):
 
 def post_page(request, slug):
     single_post = get_object_or_404(Post, slug=slug)
+    
+    
+    form = CommentForm()
     return render(request, 'articles/post_page.html', {
         'post': single_post,
+        'form': form
     })
+

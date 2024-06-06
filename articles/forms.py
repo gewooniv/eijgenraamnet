@@ -1,8 +1,8 @@
 from django import forms
-from .models import Comment
+from .models import CommentForm
 
-class Comment(forms.ModelForm):
+class CommentForm(forms.ModelForm):
     class Meta:
-        model = Comment
+        model = CommentForm
         # fields = ['username', 'text']
         exclude = ['post', 'date']

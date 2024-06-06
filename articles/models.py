@@ -32,7 +32,7 @@ class Post(m.Model):
         super().save(*args, **kwargs)
     '''
         
-class Comment(m.Model):
+class CommentForm(m.Model):
     post = m.ForeignKey(Post, on_delete=m.CASCADE, null=False)
     username = m.CharField(max_length=64)
     date = m.DateField()

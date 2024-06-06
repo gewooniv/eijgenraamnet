@@ -20,10 +20,19 @@
         <main>
             <p>{{ post.content|linebreaks }}</p>
         </main>
-    </section>
-    <section>
-        <h2>Reacties:</h2>
+        <main>
             <div>
-
+                <p>Geef een reactie:</p>
+                <form action='/' method='POST'>
+                    {% csrf_token %}
+                        {{ form }}
+                    <button type='submit'>Verzend reactie</button>
+                </form>
+            </div>
+            <div>
+                <p>Reacties:</p>
+                <p>All comments on post</p>
+            </div>
+        </main>
     </section>
 {% endblock %}
