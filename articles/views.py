@@ -1,3 +1,4 @@
+from typing import Any
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.views import View
@@ -35,10 +36,16 @@ class PostsView(ListView):
     ordering = ['-date']
     context_object_name = 'posts'
 
-#class PostView(DetailView):
- #   template_name = 'articles/post_page.html'
-  #  model = Post
+class PostView(DetailView):
+    template_name = 'articles/post_page.html'
+    model = Post
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['comment_form'] = CommentForm()
+        return context
+    
+'''
 class PostView(View):
     def get(self, request, slug):
         single_post = get_object_or_404(Post, slug=slug)
@@ -67,6 +74,7 @@ class PostView(View):
             'form': form,
             #'all_comments': all_comments
         })
+'''
 
 def thank_you(request):
     return render(request, 'articles/thank_you.html')

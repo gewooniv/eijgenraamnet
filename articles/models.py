@@ -33,7 +33,7 @@ class Post(m.Model):
     '''
         
 class Comment(m.Model):
-    post = m.ForeignKey(Post, on_delete=m.CASCADE, null=False)
+    post = m.ForeignKey(Post, on_delete=m.CASCADE, null=False, related_name='comments')
     username = m.CharField(max_length=64)
     date = m.DateField()
     text = m.TextField(max_length=1000)

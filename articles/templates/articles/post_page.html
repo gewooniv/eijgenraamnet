@@ -17,22 +17,28 @@
             <address>{{ post.author }}</address>
             <div>Last updated on <time>{{ post.date|date:'d M Y' }}</time></div>
         </article>
+
         <main>
             <p>{{ post.content|linebreaks }}</p>
         </main>
-        <main>
+
+        <section id='comment-form'>
+            <h3>Geef een reactie:</h3>
+            <form method='POST'>
+                {% csrf_token %}
+                {% for form_field in comment_form %}
+                    <div class='form-control'>
+                        {{ form_field.label_tag }}
+                        {{ form_field }}
+                        {{ form_field.errors }}
+                    </div>
+                {% endfor %}
+                <button type='submit'>Verzend reactie</button>
+            </form>
             <div>
-                <p>Geef een reactie:</p>
-                <form action='/' method='POST'>
-                    {% csrf_token %}
-                        {{ form }}
-                    <button type='submit'>Verzend reactie</button>
-                </form>
-            </div>
-            <div>
-                <p>Reacties:</p>
+                <h3>Reacties:</h3>
                 <p>All comments on post</p>
             </div>
-        </main>
+        </section>   
     </section>
 {% endblock %}
