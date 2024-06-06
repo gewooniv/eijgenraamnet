@@ -17,9 +17,13 @@
             <address>{{ post.author }}</address>
             <div>Last updated on <time>{{ post.date|date:'d M Y' }}</time></div>
         </article>
-    <main>
-        <p>{{ post.content|linebreaks }}</p>
-    </main>  
-        
+        <main>
+            <p>{{ post.content|linebreaks }}</p>
+        </main>
+    </section>
+    <section>
+        <h2>Reacties:</h2>
+            <div>
+
     </section>
 {% endblock %}
