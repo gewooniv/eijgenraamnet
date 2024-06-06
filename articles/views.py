@@ -1,42 +1,72 @@
-from datetime import date
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
+from django.views import View
+from django.views.generic import ListView, DetailView
 
 from .models import Post
 from .forms import CommentForm
 
+
+
 def get_posts():
     all_posts = Post.objects.all().order_by('date')
     return all_posts
+'''
+def get_comments():
+    all_comments = Comment.objects.all().order_by('date')
+    return all_comments
+'''
 
 # Create your views here.
+class MainPageView(ListView):
+    template_name = 'articles/index.html'
+    model = Post
+    ordering = ['-date']
+    context_object_name = 'latest_posts'
 
-def main_page(request):
-    posts = get_posts()
-    latest_posts = posts[:3][::-1]
-    return render(request, 'articles/index.html', {
-        'latest_posts': latest_posts,
-    })
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        data = queryset[:3]
+        return data
 
-def posts(request):
-    posts = get_posts()
-    return render(request, 'articles/posts.html', {
-        'posts': posts,
-    })
+class PostsView(ListView):
+    template_name = 'articles/posts.html'
+    model = Post
+    ordering = ['-date']
+    context_object_name = 'posts'
 
-def post_page(request, slug):
-    single_post = get_object_or_404(Post, slug=slug)
-    
-    if request.method == 'POST':
+#class PostView(DetailView):
+ #   template_name = 'articles/post_page.html'
+  #  model = Post
+
+class PostView(View):
+    def get(self, request, slug):
+        single_post = get_object_or_404(Post, slug=slug)
+
+        form = CommentForm()
+
+        #all_comments = get_comments()
+
+        return render(request, 'articles/post_page.html', {
+            'post': single_post,
+            'form': form,
+            #'all_comments': all_comments
+        })
+
+    def post(self, request):
+        single_post = get_object_or_404(Post, slug=slug)
         form = CommentForm(request.POST)
+
         if form.is_valid():
             print(form.cleaned_data)
+            # form.save()
             return HttpResponseRedirect('/thank-you')
-    
-    
-    form = CommentForm()
-    return render(request, 'articles/post_page.html', {
-        'post': single_post,
-        'form': form
-    })
+        else:
+            return render(request, 'articles/post_page.html', {
+            'post': single_post,
+            'form': form,
+            #'all_comments': all_comments
+        })
 
+def thank_you(request):
+    return render(request, 'articles/thank_you.html')
