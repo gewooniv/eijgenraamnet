@@ -44,6 +44,8 @@
                     </div>
                     <div>
                         {{ comment.text }}
+                        {% empty %}
+                        Geen reacties gevonden.
                     </div>
                 {% endfor %}         
             </div>
