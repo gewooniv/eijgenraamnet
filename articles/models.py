@@ -3,6 +3,7 @@ from django.urls import reverse
 from django.utils.text import slugify
 
 from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 
 # Create your models here.
 
@@ -20,7 +21,7 @@ class Post(m.Model):
     date = m.DateField()
     author = m.ForeignKey(Author, on_delete=m.SET_NULL, null=True)
     excerpt = m.TextField(max_length=200)
-    content = RichTextField(max_length=20000)
+    content = RichTextUploadingField(max_length=20000)
     
     def __str__(self):
         return f'{self.title}, ({self.date})'

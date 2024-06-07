@@ -19,7 +19,7 @@
         </article>
 
         <main>
-            <p>{{ post.content|linebreaks }}</p>
+            <p>{{ post.content|safe }}</p> <!-- safe is for suppressing html tags in text -->
         </main>
 
         <section id='comment-form'>
