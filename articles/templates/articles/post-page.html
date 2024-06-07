@@ -35,10 +35,18 @@
                 {% endfor %}
                 <button type='submit'>Verzend reactie</button>
             </form>
+        </section>
+        <section id='comment-form'>
             <div>
-                <h3>Reacties:</h3>
-                <p>All comments on post</p>
+                {% for comment in all_comments %}
+                    <div class='form-control'>
+                        {{ comment.username }}, {{ comment.date }}
+                    </div>
+                    <div>
+                        {{ comment.text }}
+                    </div>
+                {% endfor %}         
             </div>
-        </section>   
+        </section>
     </section>
 {% endblock %}

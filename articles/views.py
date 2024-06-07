@@ -1,11 +1,11 @@
-from typing import Any
+from datetime import date
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views import View
 from django.views.generic import ListView
 
-from .models import Post
+from .models import Post, Comment
 from .forms import CommentForm
 
 
@@ -13,11 +13,10 @@ from .forms import CommentForm
 def get_posts():
     all_posts = Post.objects.all().order_by('date')
     return all_posts
-'''
+
 def get_comments():
     all_comments = Comment.objects.all().order_by('date')
     return all_comments
-'''
 
 # Create your views here.
 class MainPageView(ListView):
@@ -44,7 +43,7 @@ class PostView(View):
         context = {
             'post': single_post,
             'comment_form': CommentForm(),
-            #'all_comments': get_comments()
+            'all_comments': get_comments()
         }
 
         return render(request, 'articles/post-page.html', context)
@@ -54,18 +53,18 @@ class PostView(View):
         form = CommentForm(request.POST)
 
         if form.is_valid():
-            print(form.cleaned_data)
             
-            #comment = form.save(commit=False)
-            #comment.post = single_post
-            #comment.save()
+            comment = form.save(commit=False)
+            comment.post = single_post
+            comment.date = date.today()
+            comment.save()
 
             return HttpResponseRedirect(reverse('post-page', args=[slug]))
         else:
             context = {
             'post': single_post,
             'comment_form': form,
-            #'all_comments': get_comments()
+            'all_comments': get_comments()
             }
 
             return render(request, 'articles/post-page.html', context)
