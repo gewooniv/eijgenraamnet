@@ -2,6 +2,8 @@ from django.db import models as m
 from django.urls import reverse
 from django.utils.text import slugify
 
+from ckeditor.fields import RichTextField
+
 # Create your models here.
 
 class Author(m.Model):
@@ -18,7 +20,7 @@ class Post(m.Model):
     date = m.DateField()
     author = m.ForeignKey(Author, on_delete=m.SET_NULL, null=True)
     excerpt = m.TextField(max_length=200)
-    content = m.TextField(max_length=20000)
+    content = RichTextField(max_length=20000)
     
     def __str__(self):
         return f'{self.title}, ({self.date})'
