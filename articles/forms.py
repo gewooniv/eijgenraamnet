@@ -20,3 +20,9 @@ class CommentForm(forms.ModelForm):
                 'max_length': 'De lengte van de reactie is te groot.'
             }
         }
+        widgets = {
+            'text': forms.Textarea(attrs={
+                'rows': 5,
+                'cols': 40
+            })
+        }
