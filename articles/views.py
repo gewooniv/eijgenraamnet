@@ -1,8 +1,9 @@
 from typing import Any
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
+from django.urls import reverse
 from django.views import View
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView
 
 from .models import Post
 from .forms import CommentForm
@@ -36,45 +37,35 @@ class PostsView(ListView):
     ordering = ['-date']
     context_object_name = 'posts'
 
-class PostView(DetailView):
-    template_name = 'articles/post_page.html'
-    model = Post
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['comment_form'] = CommentForm()
-        return context
-    
-'''
 class PostView(View):
     def get(self, request, slug):
         single_post = get_object_or_404(Post, slug=slug)
 
-        form = CommentForm()
-
-        #all_comments = get_comments()
-
-        return render(request, 'articles/post_page.html', {
+        context = {
             'post': single_post,
-            'form': form,
-            #'all_comments': all_comments
-        })
+            'comment_form': CommentForm(),
+            #'all_comments': get_comments()
+        }
 
-    def post(self, request):
+        return render(request, 'articles/post-page.html', context)
+
+    def post(self, request, slug):
         single_post = get_object_or_404(Post, slug=slug)
         form = CommentForm(request.POST)
 
         if form.is_valid():
             print(form.cleaned_data)
-            # form.save()
-            return HttpResponseRedirect('/thank-you')
-        else:
-            return render(request, 'articles/post_page.html', {
-            'post': single_post,
-            'form': form,
-            #'all_comments': all_comments
-        })
-'''
+            
+            #comment = form.save(commit=False)
+            #comment.post = single_post
+            #comment.save()
 
-def thank_you(request):
-    return render(request, 'articles/thank_you.html')
+            return HttpResponseRedirect(reverse('post-page', args=[slug]))
+        else:
+            context = {
+            'post': single_post,
+            'comment_form': form,
+            #'all_comments': get_comments()
+            }
+
+            return render(request, 'articles/post-page.html', context)

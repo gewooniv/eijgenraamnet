@@ -24,7 +24,7 @@ class Post(m.Model):
         return f'{self.title}, ({self.date})'
     
     def get_absolute_url(self):
-        return reverse("post_page", args=[self.slug])
+        return reverse("post-page", args=[self.slug])
     
     '''
     def save(self, *args, **kwargs):
