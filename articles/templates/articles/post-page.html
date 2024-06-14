@@ -40,21 +40,18 @@
             <button type='submit'>Verzend reactie</button>
         </form>
     </section>
-    <section id='comment-form'>
-        <div>
-            {% for comment in all_comments %}
-                <div class='form-control'>
-                    {{ comment.username }}, {{ comment.date }}
-                </div>
-                <div>
-                    {{ comment.text }}
-                    {% empty %}
-                    Geen reacties gevonden.
-                </div>
-            {% endfor %}         
-        </div>
-    </section>
-
+    
+    {% for comment in all_comments %}
+        <section id='comment-form'>
+            <div class='comment'>
+                <div>{{ comment.username }}, {{ comment.date }}</div>
+                <div>{{ comment.text }}</div>       
+            </div>
+        </section>
+    {% empty %}
+        Geen reacties gevonden.
+    {% endfor %}         
+    
     <section id='about'>
         <a href='/admin'>Admin login</a>
     </section>
