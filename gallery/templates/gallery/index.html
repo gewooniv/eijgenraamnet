@@ -16,9 +16,9 @@
             {% for picture in pictures %} 
                 <li class="picture"> 
                     <a href="#"> 
-                        <img src="{{ picture.image.url }}" alt="{{ picture.name }}" width="200"> 
+                        <img src="{{ picture.image.url }}" alt="{{ picture.name }}" width="300"> 
                     </a> 
-                    <h2>{{ picture.name }}</h2>
+                    <p>{{ picture.name }}</p>
                 </li>
             {% empty %}
                 No images found.
