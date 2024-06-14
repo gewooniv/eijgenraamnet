@@ -10,7 +10,6 @@ from .models import Post, Comment
 from .forms import CommentForm
 
 
-
 def get_posts():
     all_posts = Post.objects.all().order_by('date')
     return all_posts
