@@ -18,7 +18,7 @@ class Author(m.Model):
 class Post(m.Model):
     title = m.CharField(max_length=64)
     slug = m.SlugField(default='', blank=True, null=False, db_index=True)
-    header_image = m.ImageField(upload_to='headers/')
+    header_image = m.ImageField(upload_to='headers/', null=True)
     date = m.DateField()
     author = m.ForeignKey(Author, on_delete=m.SET_NULL, null=True)
     excerpt = m.TextField(max_length=200)
