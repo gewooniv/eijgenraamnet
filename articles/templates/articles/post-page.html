@@ -13,7 +13,7 @@
     <section id='summary'>
         <h2>{{ post.title }}</h2>
         <article>
-            <img src="{% static 'articles/images/de_mallemolen.jpg' %}" alt="{{ post.title }}" />
+            <img src="{{ post.header_image.url }}" alt="{{ post.title }}" />
             <address>{{ post.author }}</address>
             <div>Last updated on <time>{{ post.date|date:'d M Y' }}</time></div>
         </article>
