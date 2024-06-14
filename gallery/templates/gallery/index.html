@@ -11,6 +11,20 @@
 {% endblock %}
 
 {% block content %}
+    <section id="gallery">    
+        <ul class="picture-gallery"> 
+            {% for picture in pictures %} 
+                <li class="picture"> 
+                    <a href="#"> 
+                        <img src="{{ picture.image.url }}" alt="{{ picture.name }}" width="200"> 
+                    </a> 
+                    <h2>{{ picture.name }}</h2>
+                </li>
+            {% empty %}
+                No images found.
+            {% endfor %} 
+        </ul>
+    </section>
 
     <section id='about'>
         <a href='/admin'>Admin login</a>

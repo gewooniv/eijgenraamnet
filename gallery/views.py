@@ -1,7 +1,12 @@
 from django.shortcuts import render
 from django.views import View
+from .models import Picture
 
 # Create your views here.
 
 def index(request):
-    return render(request, 'gallery/index.html')
+    pictures = Picture.objects.all()
+    context = {
+        'pictures': pictures
+    }
+    return render(request, 'gallery/index.html', context)
