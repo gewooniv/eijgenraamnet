@@ -3,7 +3,7 @@
 <li>
     <article class='post'>
         <a href="{{ post.get_absolute_url }}">
-            <img src="{% static 'articles/images/de_mallemolen.jpg' %}" alt='{{ post.title }}' />
+            <img src="{{ post.header_image.url }}" alt='{{ post.title }}' />
             <div class='post__content'>
                 <h3>{{ post.title }}</h2>
                     <p>{{ post.excerpt }}</p>

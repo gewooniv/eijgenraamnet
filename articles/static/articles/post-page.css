@@ -3,15 +3,16 @@ body {
   }
   
   #welcome img {
-    width: 16rem;
-    height: 16rem;
+    width: 18rem;
+    height: 18rem;
     border-radius: 12px;
     border: 5px solid white;
-    margin-bottom: 1rem;
   }
   
   .author {
     color: white;
+    align-items: flex-start;
+    margin: 0 0 0 2rem;
   }
   
   main {
@@ -65,8 +66,4 @@ body {
     width: 100%;
     font: inherit;
 
-  }
-
-  .comment {
-    margin-bottom: 1rem;
   }
