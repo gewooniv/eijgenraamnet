@@ -1,7 +1,7 @@
 <a name="readme-top"></a>
 <br />
 <div align="center">
-  <a href="https://github.com/gewooniv/eijgenraamnet"><h3 align="center">Decklist</h3></a>
+  <a href="https://github.com/gewooniv/eijgenraamnet"><h3 align="center">Eijgenraam.net</h3></a>
 
   <p align="center">
     project_description
@@ -35,7 +35,13 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This is a project to share insights of our family history and genealogy with others.
+This is a project to share insights of our family history and genealogy with others. The current/old website is outdated and to be replaced by this one. 
+
+The current requirements are:
+* an admin panel to add posts/articles
+* a link and clear description to our family tree (external site)
+* a comment section below posts
+* a guestbook
 
 
 
