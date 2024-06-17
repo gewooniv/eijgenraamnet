@@ -8,6 +8,7 @@
 {% block css_files %}
     <link rel='stylesheet' href="{% static 'gallery/index.css' %}">
     <link rel='stylesheet' href="{% static 'gallery/gallery.css' %}">
+    <link href="{% static 'lightbox.css' %}" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
@@ -15,10 +16,10 @@
         <ul class="picture-gallery"> 
             {% for picture in pictures %} 
                 <li class="picture"> 
-                    <a href="#"> 
-                        <img src="{{ picture.image.url }}" alt="{{ picture.name }}" width="300"> 
-                    </a> 
-                    <p>{{ picture.name }}</p>
+
+                        
+                        <a href="{{ picture.image.url }}" data-lightbox="{{ picture.image.url }}" data-title="{{ picture.name }}">{{ picture.name }}</a>
+
                 </li>
             {% empty %}
                 No images found.
@@ -29,4 +30,6 @@
     <section id='about'>
         <a href='/admin'>Admin login</a>
     </section>
+
+    <script src="{% static 'lightbox-plus-jquery.js' %}"></script>
 {% endblock %}
