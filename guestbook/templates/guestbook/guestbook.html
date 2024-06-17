@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Contact - Eijgenraam.net
+{% endblock %}
+
+{% block css_files %}
+    <link rel='stylesheet' href="{% static 'articles/index.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section id='welcome'>
+        <header>
+                        
+        </header>
+    </section>
+
+    <section id='comment-form'>
+        <h3>Geef een reactie:</h3>
+        <form action='{% url 'guestbook' %}' method='POST'>
+            {% csrf_token %}
+            {% for form_field in comment_form %}
+                <div class='form-control'>
+                    {{ form_field.label_tag }}
+                    {{ form_field }}
+                    {{ form_field.errors }}
+                </div>
+            {% endfor %}
+            <button type='submit'>Verzend reactie</button>
+        </form>
+    </section>
+    
+    {% for comment in all_comments %}
+        <section id='comment-form'>
+            <div class='comment'>
+                <div>{{ comment.username }}, {{ comment.date }}</div>
+                <div>{{ comment.text }}</div>       
+            </div>
+        </section>
+    {% empty %}
+        Geen reacties gevonden.
+    {% endfor %}         
+    
+    <section id='about'>
+        <a href='/admin'>Admin login</a>
+    </section>
+{% endblock %}
