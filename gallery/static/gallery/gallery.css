@@ -1,7 +1,7 @@
 #main-navigation {
-    background-color: #005237;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  }
+  background-color: #005237;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
 
 #gallery {
   margin: 7rem auto;
@@ -9,19 +9,31 @@
   max-width: 80rem;
 }
 
-.picture-gallery { 
-  display: flex; 
-  flex-wrap: wrap; /* Allow items to wrap to the next row if necessary */
-  justify-content: space-between; /* Space items evenly along the main axis */
-  list-style: none; /* Remove list styles */
-  padding: 0; 
-} 
+.picture {
+  flex: 1;
+  /* Grow to fill available space evenly */
+  max-width: 30%;
+  /* Limit item width to avoid overcrowding */
+  margin: 2rem;
+  /* Add spacing between items */
+  border: 0px solid #ccc;
+  /* Add a border for visual separation */
+  padding: 1rem;
+  text-align: center;
+}
 
-.picture { 
-  flex: 1; /* Grow to fill available space evenly */
-  max-width: 30%; /* Limit item width to avoid overcrowding */
-  margin: 2rem; /* Add spacing between items */
-  border: 0px solid #ccc; /* Add a border for visual separation */ 
-  padding: 1rem; 
-  text-align: center; 
-} 
+.picture-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  /* Allow items to wrap to the next row if necessary */
+  justify-content: space-between;
+  /* Space items evenly along the main axis */
+  list-style: none;
+  /* Remove list styles */
+  padding: 0;
+}
+
+.picture img {
+  width: 12.5rem;
+  border-radius: 1rem;
+}

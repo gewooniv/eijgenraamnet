@@ -16,14 +16,13 @@
         <ul class="picture-gallery"> 
             {% for picture in pictures %} 
                 <li class="picture"> 
-
-                        
-                        <a href="{{ picture.image.url }}" data-lightbox="{{ picture.image.url }}" data-title="{{ picture.name }}">{{ picture.name }}</a>
-
+                    <a href="{{ picture.image.url }}" data-lightbox="{{ picture.image.url }}" data-title="{{ picture.name }}">
+                        <img src="{{ picture.image.url }}" alt="{{ picture.name }}">
+                    </a>
                 </li>
             {% empty %}
                 No images found.
-            {% endfor %} 
+            {% endfor %}
         </ul>
     </section>
 
