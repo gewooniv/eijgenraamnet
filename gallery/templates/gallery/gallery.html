@@ -12,10 +12,10 @@
 {% endblock %}
 
 {% block content %}
-    <section id="gallery">    
-        <ul class="picture-gallery"> 
-            {% for picture in pictures %} 
-                <li class="picture"> 
+    <section id="gallery">
+        <ul class="picture-gallery">
+            {% for picture in pictures %}
+                <li class="picture">
                     <a href="{{ picture.image.url }}" data-lightbox="{{ picture.image.url }}" data-title="{{ picture.name }}">
                         <img src="{{ picture.image.url }}" alt="{{ picture.name }}">
                     </a>
@@ -24,10 +24,6 @@
                 No images found.
             {% endfor %}
         </ul>
-    </section>
-
-    <section id='about'>
-        <a href='/admin'>Admin login</a>
     </section>
 
     <script src="{% static 'lightbox-plus-jquery.js' %}"></script>

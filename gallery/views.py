@@ -9,4 +9,4 @@ def index(request):
     context = {
         'pictures': pictures
     }
-    return render(request, 'gallery/index.html', context)
+    return render(request, 'gallery/gallery.html', context)
