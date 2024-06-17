@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block css_files %}
-    <link rel='stylesheet' href="{% static 'articles/index.css' %}">
+    <link rel='stylesheet' href="{% static 'guestbook/index.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -38,8 +38,6 @@
                 <div>{{ comment.text }}</div>       
             </div>
         </section>
-    {% empty %}
-        Geen reacties gevonden.
     {% endfor %}         
     
     <section id='about'>
