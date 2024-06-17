@@ -55,7 +55,11 @@ N/A
 
 ### Built With
 
+CKEditor
 https://ckeditor.com/
+
+Lightbox
+https://github.com/lokesh/lightbox2
 
 
 
