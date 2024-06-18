@@ -22,13 +22,14 @@
 {% block content %}
     <section id='welcome'>
         <header>
-            {% for admin in all_admins %}
-                <div>
-                    <div>{{ admin.username }}</div>
-                    <div>{{ admin.email }}</div>       
-                </div>
-        {% endfor %}
-                        
+            <div>
+                <h2>Beheerders</h2>
+                    {% for admin in all_admins %}
+                        <div>
+                            <p><a href="mailto:{{ admin.email }}">{{ admin.first_name }} {{ admin.last_name }} - {{ admin.title }}</a></p>   
+                        </div>
+                    {% endfor %}
+            </div>
         </header>
     </section>
 

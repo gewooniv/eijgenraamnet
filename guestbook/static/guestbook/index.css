@@ -33,6 +33,12 @@
   font-size: 1rem;
 }
 
+#welcome a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
 #comment-form {
   margin: 1rem auto;
   width: 90%;
