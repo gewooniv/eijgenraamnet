@@ -11,6 +11,8 @@
     <link rel='stylesheet' href="{% static 'guestbook/index.css' %}">
     <script>
         function displayForm(comment_id) {
+            var text = document.getElementById("responseBtn" + comment_id);
+            text.style.display = "none";
             var text = document.getElementById("responseForm" + comment_id);
             text.style.display = "block";
           }
@@ -34,7 +36,7 @@
             <div class='comment'>
                 <div>{{ comment.username }}, {{ comment.date }}</div>
                 <div>{{ comment.text }}</div>
-                    <button onClick='displayForm({{ comment.id }})'>Reageer</button>
+                    <button onClick='displayForm({{ comment.id }})' id="responseBtn{{ comment.id }}">Reageer</button>
                         <div id="responseForm{{ comment.id }}" style="display: none;">
                             {% include 'guestbook/includes/comment-form.html' %}
                         </div>
