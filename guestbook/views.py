@@ -4,6 +4,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views import View
 from django.shortcuts import render
+from django.template.loader import render_to_string
 
 from .models import Comment
 from .forms import CommentForm
@@ -50,3 +51,7 @@ class GuestbookView(View):
             }
 
             return render(request, 'guestbook/guestbook.html', context)
+
+def add_response(request):
+    add_comment_form = ""
+    return render_to_string('guestbook', {'add_comment_form': add_comment_form}, request)

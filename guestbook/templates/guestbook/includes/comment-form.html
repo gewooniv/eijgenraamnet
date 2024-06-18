@@ -1,0 +1,11 @@
+<form action='{% url 'guestbook' %}' method='POST'>
+    {% csrf_token %}
+    {% for form_field in comment_form %}
+        <div class='form-control'>
+            {{ form_field.label_tag }}
+            {{ form_field }}
+            {{ form_field.errors }}
+        </div>
+    {% endfor %}
+    <button type='submit'>Verzend reactie</button>
+</form>
