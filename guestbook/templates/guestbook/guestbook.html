@@ -39,6 +39,7 @@
                 <div>{{ comment.text }}</div>
             </div>  
         </section>
+        {% if comment|has_response %}
         <section id='response'>
             {% for response in all_responses|in_comment:comment %}
                 <div>
@@ -47,6 +48,7 @@
                 </div>
             {% endfor %}
         </section>
+        {% endif %}
     {% endfor %}
 
 {% endblock %}
