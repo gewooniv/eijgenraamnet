@@ -39,7 +39,7 @@
                 <div>{{ comment.text }}</div>
             </div>  
         </section>
-        {% if comment|has_response %}
+        {% if comment|has_response:all_responses %}
         <section id='response'>
             {% for response in all_responses|in_comment:comment %}
                 <div>
