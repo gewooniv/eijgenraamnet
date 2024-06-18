@@ -10,8 +10,8 @@
 {% block css_files %}
     <link rel='stylesheet' href="{% static 'guestbook/index.css' %}">
     <script>
-        function displayForm() {
-            var text = document.getElementById("responseForm");
+        function displayForm(comment_id) {
+            var text = document.getElementById("responseForm" + comment_id);
             text.style.display = "block";
           }
     </script>
@@ -34,10 +34,10 @@
             <div class='comment'>
                 <div>{{ comment.username }}, {{ comment.date }}</div>
                 <div>{{ comment.text }}</div>
-                    <button onClick='displayForm()'>Reageer</button>
-                    <div id="responseForm" style="display: none;">
-                        {% include 'guestbook/includes/comment-form.html' %}
-                    </div>
+                    <button onClick='displayForm({{ comment.id }})'>Reageer</button>
+                        <div id="responseForm{{ comment.id }}" style="display: none;">
+                            {% include 'guestbook/includes/comment-form.html' %}
+                        </div>
             </div>
         </section>
         {% if comment|has_response:all_responses %}
