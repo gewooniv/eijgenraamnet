@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load commenttags %}
 
 {% block title %}
     Contact - Eijgenraam.net
@@ -17,7 +18,7 @@
     </section>
 
     <section id='comment-form'>
-        <h3>Geef een reactie:</h3>
+        <h3>Laat iets achter in ons gastenboek:</h3>
         <form action='{% url 'guestbook' %}' method='POST'>
             {% csrf_token %}
             {% for form_field in comment_form %}
@@ -35,12 +36,17 @@
         <section id='comment-form'>
             <div class='comment'>
                 <div>{{ comment.username }}, {{ comment.date }}</div>
-                <div>{{ comment.text }}</div>       
-            </div>
+                <div>{{ comment.text }}</div>
+            </div>  
         </section>
-    {% endfor %}         
-    
-    <section id='about'>
-        <a href='/admin'>Admin login</a>
-    </section>
+        <section id='response'>
+            {% for response in all_responses|in_comment:comment %}
+                <div>
+                    <div>{{ response.username }}, {{ response.date }}</div>
+                    <div>{{ response.text }}</div>
+                </div>
+            {% endfor %}
+        </section>
+    {% endfor %}
+
 {% endblock %}
