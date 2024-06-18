@@ -51,7 +51,3 @@ class GuestbookView(View):
             }
 
             return render(request, 'guestbook/guestbook.html', context)
-
-def add_response(request):
-    add_comment_form = ""
-    return render_to_string('guestbook', {'add_comment_form': add_comment_form}, request)
