@@ -86,7 +86,7 @@
   }
 
   #comment-form button {
-    font: inherit;
+    font-size: small;
     background-color: #005237;
     color: white;
     border: 1px solid #005237;

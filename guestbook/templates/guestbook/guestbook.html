@@ -27,8 +27,16 @@
     </section>
 
     <section id='comment-form'>
-        <h3>Laat iets achter in ons gastenboek:</h3>
-        {% include 'guestbook/includes/comment-form.html' %}
+        <div>
+            <h3>Laat iets achter in ons gastenboek:</h3>
+            <p>Het gastenboek is bedoeld om een bericht achter te laten voor de beheerders van de site. Dit kan een tip zijn, maar je mag ze natuurlijk ook gewoon de groetjes willen doen.</p>
+            <p>Door middel van de Reageer-knop, heb je de mogelijkheid te reageren op anderen.
+        </div>
+        <button onClick='displayForm("")' id="responseBtn">Reageer</button>
+            <div id="responseForm" style="display: none;">
+                {% include 'guestbook/includes/comment-form.html' %}
+            </div>
+        
     </section>
     
     {% for comment in all_comments %}
