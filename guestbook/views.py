@@ -12,7 +12,6 @@ from .forms import CommentForm
 
 # Create your views here.
 
-
 def get_comments():
     all_comments = Comment.objects.filter(comment__isnull=True).order_by("-date")
     return all_comments
