@@ -1,129 +1,87 @@
 #welcome {
-    background: linear-gradient(to right top, #005237, #01cc88);
-    padding: 6rem 12%;
-  }
-  
-  #welcome header {
-    display: flex;
-    align-items: flex-start;
-    margin: 3rem auto;
-  }
-  
-  #welcome img {
-    width: 12.5rem;
-    height: 17.5rem;
-    object-fit: cover;
-    object-position: top;
-    border: 5px solid white;
-    border-radius: 12px;
-    background-color: #ffe1bf;
-    /* transform: rotateZ(-5deg); */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  }
-  
-  #welcome h2 {
-    font-size: 3rem;
-    margin: 0 0 0 2rem;
-    color: #e4e4e4;
-    width: 50rem;
-  }
-  
-  #welcome p {
-    color: white;
-    font-size: 1rem;
-  }
-  
-  #latest-posts {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 12px;
-    width: 60rem;
-    margin: -6rem auto 2rem auto;
-    box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.4);
-  }
-  
-  #latest-posts h2 {
-    text-align: center;
-  }
-  
-  #latest-posts ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 1rem;
-  }
-  
-  #latest-posts li {
-    flex: 1;
-  }
-  
-  #about {
-    text-align: center;
-    padding: 3rem;
-    background-color: #e0e0e0;
-    margin-top: 5rem;
-  }
-  
-  #about h2 {
-    font-size: 2rem;
-  }
-  
-  #about p {
-    font-size: 1rem;
-    color: #353535;
-  }
+  background: linear-gradient(to right top, #005237, #01cc88);
+  padding: 6rem 12%;
+}
 
+#welcome header {
+  display: flex;
+  align-items: flex-start;
+  margin: 3rem auto;
+}
 
-  #comment-form {
-    margin: 1rem auto;
-    width: 90%;
-    max-width: 50rem;
-    border-radius: 12px;
-    background-color: white;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-    padding: 1rem;
-  }
+#welcome img {
+  width: 12.5rem;
+  height: 17.5rem;
+  object-fit: cover;
+  object-position: top;
+  border: 5px solid white;
+  border-radius: 12px;
+  background-color: #ffe1bf;
+  /* transform: rotateZ(-5deg); */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
 
-  #comment-form button {
-    font-size: small;
-    background-color: #005237;
-    color: white;
-    border: 1px solid #005237;
-    padding: 0.5rem 1.5rem;
-    border-radius: 6px;
-  }
+#welcome h2 {
+  font-size: 3rem;
+  margin: 0 0 0 2rem;
+  color: #e4e4e4;
+  width: 50rem;
+}
 
-  #comment-form button:hover,
-  #comment-form button:active {
-    background-color: #0b885e;
-    border-color: #0b885e;
-  }
+#welcome p {
+  color: white;
+  font-size: 1rem;
+}
 
-  .form-control {
-    margin-bottom: 1rem;
-  }
+#comment-form {
+  margin: 1rem auto;
+  width: 90%;
+  max-width: 50rem;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  padding: 1rem;
+}
 
-  .form-control label {
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    display: block;
-  }
+#comment-form button {
+  font-size: small;
+  background-color: #005237;
+  color: white;
+  border: 1px solid #005237;
+  padding: 0.5rem 1.5rem;
+  border-radius: 6px;
+}
 
-  .form-control input,
-  .form-control textarea {
-    display: block;
-    width: 100%;
-    font: inherit;
+#comment-form button:hover,
+#comment-form button:active {
+  background-color: #0b885e;
+  border-color: #0b885e;
+}
 
-  }
+.form-control {
+  margin-bottom: 1rem;
+}
 
-  #response {
-    margin: 0.5rem auto;
-    width: 80%;
-    max-width: 45rem;
-    border-radius: 12px;
-    background-color: rgb(177, 177, 177);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-    padding: 1rem;
-  }
+.form-control label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.form-control input,
+.form-control textarea {
+  display: block;
+  width: 100%;
+  font: inherit;
+
+}
+
+#response {
+  margin: 0.5rem auto;
+  width: 80%;
+  max-width: 45rem;
+  border-radius: 12px;
+  background-color: rgb(177, 177, 177);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  padding: 1rem;
+}

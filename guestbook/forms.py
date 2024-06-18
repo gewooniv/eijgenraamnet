@@ -5,7 +5,7 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         # fields = ['username', 'text']
-        exclude = ['post', 'date']
+        exclude = ['comment', 'date']
         labels = {
             'username': 'Naam',
             'text': 'Reactie'
@@ -22,7 +22,7 @@ class CommentForm(forms.ModelForm):
         }
         widgets = {
             'text': forms.Textarea(attrs={
-                'rows': 5,
+                'rows': 4,
                 'cols': 40
             })
         }
