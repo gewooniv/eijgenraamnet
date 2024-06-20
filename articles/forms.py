@@ -1,5 +1,8 @@
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django import forms
-from .models import Comment
+from .models import Comment, CustomUser
+
+
 
 class CommentForm(forms.ModelForm):
     class Meta:
@@ -26,3 +29,32 @@ class CommentForm(forms.ModelForm):
                 'cols': 40
             })
         }
+
+class CustomUserCreationForm(UserCreationForm):
+    class Meta:
+        model = CustomUser
+        fields = [
+            "first_name", 
+            "last_name", 
+            "email",
+            "password", 
+            "date_of_birth",
+            "is_staff",
+            "is_active",
+            "groups",
+            "user_permissions"
+        ]
+class CustomUserChangeForm(UserChangeForm):
+    class Meta:
+        model = CustomUser
+        fields = [
+            "first_name", 
+            "last_name", 
+            "email", 
+            "password",
+            "date_of_birth",
+            "is_staff",
+            "is_active", 
+            "groups",
+            "user_permissions"
+         ]

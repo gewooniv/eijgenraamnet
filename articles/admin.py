@@ -4,12 +4,6 @@ from .models import Post, Author, CustomUser
 
 # Register your models here.
 
-class PostAdmin(admin.ModelAdmin):
-    # readonly_fields = ()
-    prepopulated_fields = {'slug': ('title',)}
-    # list_display
-    list_filter = ('author', )
-
 class CustomUserAdmin(UserAdmin):
     model = CustomUser
     list_display = (
@@ -60,5 +54,12 @@ class CustomUserAdmin(UserAdmin):
     search_fields = ("email",)
     ordering = ("email",)
 
-admin.site.register(Post, PostAdmin)
+class PostAdmin(admin.ModelAdmin):
+    # readonly_fields = ()
+    prepopulated_fields = {'slug': ('title',)}
+    # list_display
+    list_filter = ('author', )
+
 admin.site.register(Author)
+admin.site.register(CustomUser, CustomUserAdmin)
+admin.site.register(Post, PostAdmin)
