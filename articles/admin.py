@@ -14,6 +14,7 @@ class CustomUserAdmin(UserAdmin):
         "first_name",
         "last_name",
         "date_of_birth",
+        "function",
         "is_staff",
         "is_active",
     )
@@ -31,7 +32,8 @@ class CustomUserAdmin(UserAdmin):
             "last_name", 
             "email", 
             "password", 
-            "date_of_birth")}
+            "date_of_birth",
+            "function",)}
         ),
         ("Permissions", {"fields": (
             "is_staff", 
@@ -48,6 +50,7 @@ class CustomUserAdmin(UserAdmin):
             "password1",
             "password2",
             "date_of_birth",
+            "function",
             "is_staff",
             "is_active",
             "groups",
