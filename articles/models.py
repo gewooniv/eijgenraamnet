@@ -17,12 +17,6 @@ class Author(m.Model):
     def __str__(self):
         return f'{self.first_name}, {self.dob}'
     
-class Comment(m.Model):
-    post = m.ForeignKey(Post, on_delete=m.CASCADE, null=False, related_name='comments')
-    username = m.CharField(max_length=64)
-    date = m.DateField()
-    text = m.TextField(max_length=1000)
-
 class CustomUserManager(BaseUserManager):
     def create_user(
             self,
@@ -67,7 +61,7 @@ class CustomUserManager(BaseUserManager):
             **extra_fields
         )
 
-class CustomUser(AbstractUser):
+class User(AbstractUser):
     username = None
     email = m.EmailField(_('email address'), unique=True)
     date_of_birth = m.DateField(
@@ -105,4 +99,9 @@ class Post(m.Model):
         self.slug = slugify(self.title)
         super().save(*args, **kwargs)
     '''
-        
+
+class Comment(m.Model):
+    post = m.ForeignKey(Post, on_delete=m.CASCADE, null=False, related_name='comments')
+    username = m.CharField(max_length=64)
+    date = m.DateField()
+    text = m.TextField(max_length=1000)
