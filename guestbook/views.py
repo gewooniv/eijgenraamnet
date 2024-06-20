@@ -1,12 +1,13 @@
 from datetime import date
 
-from django.contrib.auth.models import User
+
 from django.db.models import Q
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views import View
 from django.shortcuts import render
 
+from articles.models import User
 from .models import Comment
 from .forms import CommentForm
 
