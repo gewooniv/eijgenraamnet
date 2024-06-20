@@ -12,6 +12,16 @@
 {% endblock %}
 
 {% block content %}
+    <section id='categories'>
+        <ul>
+            <li><a href"#">Alle afbeelingen</a></li>
+            <li><a href"#">Diversen</a></li>
+            <li><a href"#">Kaarten</a></li>
+            <li><a href"#">Personen</a></li>
+            <li><a href"#">Prenten</a></li>
+        </ul>
+    </section>
+
     <section id="gallery">
         <ul class="picture-gallery">
             {% for picture in pictures %}
@@ -20,8 +30,6 @@
                         <img src="{{ picture.image.url }}" alt="{{ picture.name }}">
                     </a>
                 </li>
-            {% empty %}
-                No images found.
             {% endfor %}
         </ul>
     </section>
