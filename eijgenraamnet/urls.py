@@ -24,4 +24,5 @@ urlpatterns = [
     path('', include('articles.urls')),
     path('', include('gallery.urls')),
     path('', include('guestbook.urls'))
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) \
+  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
