@@ -1,0 +1,94 @@
+#welcome {
+  background: linear-gradient(to right top, #005237, #01cc88);
+  padding: 6rem 12%;
+}
+
+#welcome header {
+  display: flex;
+  align-items: flex-start;
+  margin: 3rem auto;
+}
+
+#welcome img {
+  width: 12.5rem;
+  height: 17.5rem;
+  object-fit: cover;
+  object-position: top;
+  border: 5px solid white;
+  border-radius: 12px;
+  background-color: #ffe1bf;
+  /* transform: rotateZ(-5deg); */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+#welcome h2 {
+  font-size: 2rem;
+  margin: 0 0 0 2rem;
+  color: #e4e4e4;
+  width: 50rem;
+}
+
+#welcome p {
+  color: white;
+  font-size: 1rem;
+  margin: 0 0 0 2.5rem;
+}
+
+#welcome a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#comment-form {
+  margin: 1rem auto;
+  width: 90%;
+  max-width: 50rem;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  padding: 1rem;
+}
+
+#comment-form button {
+  font-size: small;
+  background-color: #005237;
+  color: white;
+  border: 1px solid #005237;
+  padding: 0.5rem 1.5rem;
+  border-radius: 6px;
+}
+
+#comment-form button:hover,
+#comment-form button:active {
+  background-color: #0b885e;
+  border-color: #0b885e;
+}
+
+.form-control {
+  margin-bottom: 1rem;
+}
+
+.form-control label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.form-control input,
+.form-control textarea {
+  display: block;
+  width: 100%;
+  font: inherit;
+
+}
+
+#response {
+  margin: 0.5rem auto;
+  width: 80%;
+  max-width: 45rem;
+  border-radius: 12px;
+  background-color: rgb(177, 177, 177);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  padding: 1rem;
+}
